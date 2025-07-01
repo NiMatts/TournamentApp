@@ -24,7 +24,7 @@ namespace TournamentApp.API.Controllers
 
         // GET: api/Tournaments
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TournamentDto>>> GetTournaments()
+        public async Task<ActionResult<IEnumerable<TournamentDto>>> GetTournaments(bool includeGames)
         {
             var tournaments = await _uow.TournamentRepository.GetAllAsync(includeGames: true);
             if (!tournaments.Any())
